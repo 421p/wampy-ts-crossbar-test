@@ -1,0 +1,1 @@
+### Wampy Typescript Test kit
