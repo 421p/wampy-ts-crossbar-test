@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ForkCheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function getRoot(args) {
     const _root = path.resolve(__dirname, '..');
@@ -58,11 +59,12 @@ module.exports = {
         ]
     },
     plugins: [
-        /*
-         * Plugin: ForkCheckerPlugin
-         * Description: Do type checking in a separate process, so webpack don't need to wait
-         */
-        new ForkCheckerPlugin()
+        new ForkCheckerPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'src/templates/base.template.html',
+            filename: 'index.html',
+            chunks: ['js/test']
+        })
     ],
     watchOptions: {
         poll: true,

@@ -10,4 +10,4 @@ before_install:
     - pip install --user crossbar
 
 before_script:
-    - crossbar start & && sleep 5
+    - sh -c 'crossbar start &'
